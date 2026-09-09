@@ -8,16 +8,19 @@ jobs:
       - name: updating environment
         run: echo "sudo apt update"
   install:
+    needs: update
     runs-on: ubuntu-latest
     steps:
       - name: installing required packages
         run: echo "sudo apt install $package_name"
   enable:
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - name: enable the status of installed packages
         run: echo "sudo apt status $packages_name"
   staus_check:
+    needs: enable
     runs-on: ubuntu-latest
     steps:
       - name: checking the status of installed packages
