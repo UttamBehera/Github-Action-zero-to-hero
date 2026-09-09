@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Uttam Behera | Azure Cloud & DevOps Engineer</title>
+
+  <meta
+    name="description"
+    content="Portfolio of Uttam Behera — Azure Cloud, DevOps, Linux, CI/CD, Docker and infrastructure engineering."
+  />
+
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-soft: #0d1320;
+      --card: rgba(16, 24, 40, 0.72);
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f4f7fb;
+      --muted: #9ba8bb;
+      --primary: #4f8cff;
+      --primary-2: #7c5cff;
+      --success: #35d49a;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --max-width: 1150px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(79, 140, 255, 0.12), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(124, 92, 255, 0.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 11, 20, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: none;
+      color: white;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border-radius: 50px;
+      background: rgba(53, 212, 154, 0.08);
+      border: 1px solid rgba(53, 212, 154, 0.18);
+      color: #8deac6;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--success);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--success);
+    }
+
+    h1 {
+      font-size: clamp(46px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, #5d9bff, #967cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      padding: 13px 20px;
+      border-radius: 11px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: 0.25s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      border: none;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(79, 140, 255, 0.18);
+    }
+
+    /* TERMINAL */
+
+    .terminal {
+      background: #080d17;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    }
+
+    .terminal-header {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .terminal-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #555;
+    }
+
+    .terminal-body {
+      padding: 22px;
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      line-height: 2;
+      color: #c8d2e3;
+    }
+
+    .green {
+      color: #50e3a4;
+    }
+
+    .blue {
+      color: #65a0ff;
+    }
+
+    .purple {
+      color: #ad8cff;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      color: var(--primary);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 45px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .stat {
+      padding: 25px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .stat h3 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+
+    .stat p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(79,140,255,0.35);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(79,140,255,0.10);
+      color: #75a8ff;
+      font-size: 20px;
+      margin-bottom: 18px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      color: #b7c5db;
+      padding: 5px 9px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(145deg, rgba(20,30,50,0.85), rgba(11,16,27,0.85));
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124,92,255,0.35);
+    }
+
+    .project-number {
+      color: var(--primary);
+      font-family: monospace;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .project h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    /* WORKFLOW */
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-top: 35px;
+    }
+
+    .workflow-step {
+      text-align: center;
+      padding: 25px 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .workflow-step strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .workflow-step span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      max-width: 850px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 45px;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 3px;
+      top: 5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 15px rgba(79,140,255,0.7);
+    }
+
+    .timeline-item h3 {
+      margin-bottom: 4px;
+    }
+
+    .timeline-date {
+      color: var(--primary);
+      font-size: 12px;
+      font-family: monospace;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      padding: 55px;
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(124,92,255,0.18), transparent 35%),
+        linear-gradient(135deg, rgba(79,140,255,0.09), rgba(124,92,255,0.06));
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -2px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* REVEAL */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        flex-direction: column;
+        background: #090e18;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal {
+        transform: none;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      section {
+        padding: 80px 0;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .workflow {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 35px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#home" class="logo">
+        Uttam<span>.</span>
+      </a>
+
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="container hero-grid">
+
+        <div class="reveal">
+
+          <div class="status">
+            <span class="status-dot"></span>
+            Building & Learning Cloud Infrastructure
+          </div>
+
+          <h1>
+            Azure Cloud<br />
+            <span>& DevOps Engineer.</span>
+          </h1>
+
+          <p class="hero-description">
+            I work with Linux infrastructure, cloud platforms,
+            containerization and CI/CD automation — with a focus on
+            building reliable, scalable and repeatable systems.
+          </p>
+
+          <div class="buttons">
+
+            <a href="#projects" class="btn btn-primary">
+              View My Work →
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+              Contact Me
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="terminal reveal">
+
+          <div class="terminal-header">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+          </div>
+
+          <div class="terminal-body">
+
+            <div>
+              <span class="green">$</span>
+              whoami
+            </div>
+
+            <div class="blue">
+              uttam@devops:~$
+            </div>
+
+            <br />
+
+            <div>
+              <span class="green">$</span>
+              cat skills.txt
+            </div>
+
+            <div>
+              Azure<br />
+              Linux<br />
+              Docker<br />
+              Git & GitHub<br />
+              GitHub Actions<br />
+              CI/CD<br />
+              Networking<br />
+              Infrastructure
+            </div>
+
+            <br />
+
+            <div>
+              <span class="green">$</span>
+              echo $FOCUS
+            </div>
+
+            <div class="purple">
+              CLOUD + AUTOMATION + RELIABILITY
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container reveal">
+
+        <div class="section-label">01 — About</div>
+
+        <h2 class="section-title">
+          Infrastructure mindset.<br />
+          Cloud direction.
+        </h2>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+
+            <p>
+              I'm Uttam Behera, an infrastructure and cloud-focused
+              technology professional developing my career toward
+              Azure Cloud and DevOps engineering.
+            </p>
+
+            <p>
+              My technical interests span Linux administration,
+              server infrastructure, networking, Docker,
+              Git, GitHub Actions, CI/CD pipelines and Microsoft Azure.
+            </p>
+
+            <p>
+              I enjoy understanding what happens underneath the
+              applications — from server provisioning and OS
+              installation to networking, automation and cloud
+              deployment.
+            </p>
+
+            <p>
+              My goal is to move beyond manually managing
+              infrastructure and build systems that are automated,
+              observable, secure and reproducible.
+            </p>
+
+          </div>
+
+
+          <div class="stats">
+
+            <div class="stat">
+              <h3>Azure</h3>
+              <p>Cloud platform & infrastructure</p>
+            </div>
+
+            <div class="stat">
+              <h3>Linux</h3>
+              <p>Server administration</p>
+            </div>
+
+            <div class="stat">
+              <h3>Docker</h3>
+              <p>Containerization</p>
+            </div>
+
+            <div class="stat">
+              <h3>CI/CD</h3>
+              <p>Automation & deployments</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+      <div class="container reveal">
+
+        <div class="section-label">02 — Technical Skills</div>
+
+        <h2 class="section-title">
+          Tools I work with.
+        </h2>
+
+        <p class="section-description">
+          A practical infrastructure and DevOps-oriented toolkit,
+          continuously expanding through hands-on projects.
+        </p>
+
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+
+            <div class="skill-icon">☁</div>
+
+            <h3>Microsoft Azure</h3>
+
+            <p>
+              Cloud infrastructure, virtual machines,
+              networking and Azure-based deployments.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Azure VM</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Storage</span>
+              <span class="tag">Cloud</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">⌘</div>
+
+            <h3>Linux</h3>
+
+            <p>
+              Server administration, package management,
+              services, permissions, firewall and troubleshooting.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Ubuntu</span>
+              <span class="tag">RHEL</span>
+              <span class="tag">Bash</span>
+              <span class="tag">systemd</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">◈</div>
+
+            <h3>Docker</h3>
+
+            <p>
+              Containerizing applications and understanding
+              image creation, execution and deployment workflows.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Dockerfile</span>
+              <span class="tag">Images</span>
+              <span class="tag">Containers</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">⚙</div>
+
+            <h3>CI/CD</h3>
+
+            <p>
+              Building automated workflows for code checkout,
+              build, test and deployment.
+            </p>
+
+            <div class="tags">
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">YAML</span>
+              <span class="tag">Automation</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">⌁</div>
+
+            <h3>Git & GitHub</h3>
+
+            <p>
+              Source control, repositories, branches,
+              SSH authentication and workflow automation.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">SSH</span>
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <div class="skill-icon">▣</div>
+
+            <h3>Infrastructure</h3>
+
+            <p>
+              Practical exposure to server provisioning,
+              RAID, iLO, networking and operating system deployment.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Servers</span>
+              <span class="tag">RAID</span>
+              <span class="tag">iLO</span>
+              <span class="tag">Networking</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <div class="container reveal">
+
+        <div class="section-label">03 — Projects</div>
+
+        <h2 class="section-title">
+          Hands-on engineering.
+        </h2>
+
+        <p class="section-description">
+          Projects that demonstrate practical understanding rather
+          than just a list of technologies.
+        </p>
+
+
+        <div class="projects">
+
+          <article class="project">
+
+            <div class="project-number">PROJECT / 01</div>
+
+            <h3>GitHub Actions CI/CD Pipeline</h3>
+
+            <p>
+              Designed a CI/CD workflow using GitHub Actions
+              covering source checkout, application build,
+              containerization and testing stages.
+            </p>
+
+            <div class="tags">
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">YAML</span>
+              <span class="tag">Docker</span>
+              <span class="tag">CI/CD</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-number">PROJECT / 02</div>
+
+            <h3>Linux Server Administration</h3>
+
+            <p>
+              Worked with Linux server operations including
+              package installation, services, firewall configuration,
+              networking and system troubleshooting.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Linux</span>
+              <span class="tag">Bash</span>
+              <span class="tag">Firewalld</span>
+              <span class="tag">Networking</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-number">PROJECT / 03</div>
+
+            <h3>Docker Application Deployment</h3>
+
+            <p>
+              Practiced creating Dockerfiles and converting
+              applications into portable containers that can
+              participate in automated deployment pipelines.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Dockerfile</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Containers</span>
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-number">PROJECT / 04</div>
+
+            <h3>Server Provisioning & Networking</h3>
+
+            <p>
+              Hands-on infrastructure workflow covering server
+              provisioning, RAID configuration, iLO setup,
+              operating system installation and network configuration.
+            </p>
+
+            <div class="tags">
+              <span class="tag">RAID</span>
+              <span class="tag">iLO</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Networking</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CI/CD -->
+
+    <section>
+
+      <div class="container reveal">
+
+        <div class="section-label">04 — DevOps Workflow</div>
+
+        <h2 class="section-title">
+          From commit to deployment.
+        </h2>
+
+        <p class="section-description">
+          A simplified CI/CD workflow representing the direction
+          of my DevOps learning and implementation.
+        </p>
+
+
+        <div class="workflow">
+
+          <div class="workflow-step">
+            <strong>01. Code</strong>
+            <span>Git / GitHub</span>
+          </div>
+
+          <div class="workflow-step">
+            <strong>02. Build</strong>
+            <span>Docker</span>
+          </div>
+
+          <div class="workflow-step">
+            <strong>03. Test</strong>
+            <span>Automated Tests</span>
+          </div>
+
+          <div class="workflow-step">
+            <strong>04. Deploy</strong>
+            <span>Azure</span>
+          </div>
+
+          <div class="workflow-step">
+            <strong>05. Monitor</strong>
+            <span>Operations</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE / JOURNEY -->
+
+    <section id="experience">
+
+      <div class="container reveal">
+
+        <div class="section-label">05 — Journey</div>
+
+        <h2 class="section-title">
+          Growing toward Cloud & DevOps.
+        </h2>
+
+        <p class="section-description">
+          My learning path is built around connecting traditional
+          infrastructure knowledge with modern cloud automation.
+        </p>
+
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-date">
+              FOUNDATION
+            </div>
+
+            <h3>Server & Infrastructure</h3>
+
+            <p>
+              Developed practical understanding of physical server
+              operations, RAID, iLO, OS installation, network
+              configuration and infrastructure troubleshooting.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-date">
+              NEXT LAYER
+            </div>
+
+            <h3>Linux Administration</h3>
+
+            <p>
+              Expanded into Linux system administration, packages,
+              services, permissions, networking, firewall management
+              and shell-based operations.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-date">
+              AUTOMATION
+            </div>
+
+            <h3>Git, Docker & CI/CD</h3>
+
+            <p>
+              Started connecting infrastructure with software delivery
+              through Git, Docker, GitHub Actions and YAML-based
+              automation.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <span class="timeline-dot"></span>
+
+            <div class="timeline-date">
+              CURRENT DIRECTION
+            </div>
+
+            <h3>Azure Cloud & DevOps</h3>
+
+            <p>
+              Building deeper knowledge of Azure cloud infrastructure,
+              deployment automation and modern DevOps practices.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container reveal">
+
+        <div class="contact-box">
+
+          <div class="section-label">06 — Contact</div>
+
+          <h2>Let's build something reliable.</h2>
+
+          <p>
+            I'm interested in opportunities involving Azure,
+            Cloud Infrastructure, Linux, DevOps, CI/CD and
+            infrastructure automation.
+          </p>
+
+          <div class="contact-links">
+
+            <!-- Replace these links with your real profiles -->
+
+            <a
+              href="mailto:your-email@example.com"
+              class="btn btn-primary"
+            >
+              Email Me
+            </a>
+
+            <a
+              href="https://github.com/"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              GitHub ↗
+            </a>
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              LinkedIn ↗
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © <span id="year"></span> Uttam Behera
+      </div>
+
+      <div>
+        Azure · Linux · Docker · DevOps
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    // Current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    // Mobile navigation
+    function toggleMenu() {
+      document
+        .getElementById("navLinks")
+        .classList.toggle("show");
+    }
+
+
+    // Close mobile menu after clicking
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document
+          .getElementById("navLinks")
+          .classList.remove("show");
+      });
+    });
+
+
+    // Scroll reveal animation
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+
+        });
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach(element => observer.observe(element));
+
+  </script>
+
+</body>
+</html>
