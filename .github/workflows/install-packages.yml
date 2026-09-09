@@ -16,11 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: enable the status of installed packages
-        run: echo"sudo apt status $packages_name"
+        run: echo "sudo apt status $packages_name"
   staus_check:
     runs-on: ubuntu-latest
     steps:
       - name: checking the status of installed packages
-        run: echo"apt systemctl status $installed_package"
+        run: echo "apt systemctl status $installed_package"
   
   
